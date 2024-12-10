@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "af3194f0-042b-4836-a26f-89e171517ee8",
+		"name": "Shopping API Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40316924"
+	},
+	"item": [
+		{
+			"name": "Get All Shops",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/shopping",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"shopping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Shop by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/shopping/:id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"shopping",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "shop_id_example"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Shop",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"user123\",\n    \"items\": [\n        {\n            \"productIdentifier\": \"prod001\",\n            \"quantity\": 2,\n            \"price\": 100.0\n        },\n        {\n            \"productIdentifier\": \"prod002\",\n            \"quantity\": 1,\n            \"price\": 200.0\n        }\n    ],\n    \"total\": 400.0\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/shopping",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"shopping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Shops by User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/shopping/shopByUser?userId=user123",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"shopping",
+						"shopByUser"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "user123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Shops by Date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/shopping/shopByDate?startDate=2024-01-01T00:00:00&endDate=2024-12-01T23:59:59",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"shopping",
+						"shopByDate"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2024-01-01T00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": "2024-12-01T23:59:59"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Shop by Product Identifier",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/shopping/product/prod001",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"shopping",
+						"product",
+						"prod001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Shops by Filters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/shopping/search/values?startDate=2024-01-01T00:00:00&endDate=2024-12-31T23:59:59&minValue=200.0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"shopping",
+						"search",
+						"values"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2024-01-01T00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": "2024-12-31T23:59:59"
+						},
+						{
+							"key": "minValue",
+							"value": "200.0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Shopping Report by Date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/shopping/shopping/report?dataInicio=2024-01-01T00:00:00&dataFim=2024-12-31T23:59:59",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"shopping",
+						"shopping",
+						"report"
+					],
+					"query": [
+						{
+							"key": "dataInicio",
+							"value": "2024-01-01T00:00:00"
+						},
+						{
+							"key": "dataFim",
+							"value": "2024-12-31T23:59:59"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
